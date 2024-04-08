@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
 import useWordSearchWords from './useWordSearchWords'
 import useWordSearchGrid from './useWordSearchGrid';
 import useWordSearchSelection from './useWordSearchSelection';
 
-export default function useWordSearch(gridSize, wordList){
+export default function useWordSearch(gridSize, wordLists, defaultWordListIndex, onRestarted){
 
   const debugMode = false;
 
@@ -13,7 +12,8 @@ const {
   words,
   regenerateWords
 } = useWordSearchWords(
-    wordList,
+    wordLists,
+    defaultWordListIndex,
     gridSize, 
     handleRegenerateGrid);
 
@@ -41,6 +41,7 @@ function handleRegenerateGrid(){
   clearGrid();
   regenerateWords();
   regenerateGrid();
+  onRestarted();
 }
 
 
@@ -55,7 +56,6 @@ return {
   handleCellSelected, 
   handleRegenerateGrid, 
   handleDropdownChange, 
-  loaded}
-
-
+  loaded
+  }
 }

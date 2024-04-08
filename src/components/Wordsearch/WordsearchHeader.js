@@ -2,8 +2,7 @@ import Dropdown from "./Dropdown"
 import Button from "./Button";
 import styles from "../wordsearch.module.css"
 
-export default function WordsearchHeader({chosenList, wordListOptions, handleWordListSelection, gridSizeDisplay, incrementGridSize, decrementGridSize}){
-
+export default function WordsearchHeader({ chosenList, wordListOptions, handleWordListSelection, gridSizeDisplay, incrementGridSize, decrementGridSize }){
 
 const gridSizeBarStyle={
         width: `${Math.floor(100/14 * gridSizeDisplay - (100/14 * 6))}%`,
