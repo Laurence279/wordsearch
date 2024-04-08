@@ -8,7 +8,7 @@ function handleSelect(e){
 
 return <select className={styles.dropdown} defaultValue={selected} onChange={handleSelect}>
         {options.map((option)=>{
-            return <Option key={option.id} value={option.name}/>
+            return <Option key={option.name} value={option.name}/>
         })}
     </select>
 }

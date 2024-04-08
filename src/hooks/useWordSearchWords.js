@@ -2,16 +2,15 @@
 import {useRef, useState} from 'react';
 
 
-export default function useWordSearchWords(wordList, gridSize, handleRegenerateGrid){
+export default function useWordSearchWords(wordList, defaultWordListIndex, gridSize, handleRegenerateGrid){
 
 
     const maxWords = (Math.floor((gridSize+1 * (Math.log(3)*gridSize)) / 2 + (1*gridSize/10) - 3 ))
     const numCells = gridSize * gridSize;
     const maxChars = Math.floor((numCells/100)*50) //% of total cells in grid
     const maxWordLength = gridSize;
-    
 
-    const chosenList = useRef(wordList[0])
+    const chosenList = useRef(wordList[defaultWordListIndex || 0])
 
     function handleDropdownChange(value){
         chosenList.current = wordList.find((list)=>{
